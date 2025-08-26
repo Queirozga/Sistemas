@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frete</title>
+    <style>
+       body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(200, 200, 202);
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        height: 100vh;
+       }
+
+       .atv_container {
+        background-color: aliceblue;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <div class="atv_container">
+        <h1>Calcular Aprovação</h1>
+        <label for="nota">Nota:</label>
+        <input type="number" id="nota" placeholder="Digite a sua nota">
+        <button onclick="calcAprov()">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+</body>
+
+<script>
+    function calcAprov() {
+        let nota = document.querySelector("#nota").value;
+        let result = document.querySelector("#resultado");
+        let situacao = "";
+        let conceito = "";
+
+        if(nota < 5) {
+            situacao = "reprovado";
+            conceito = "D";
+        } else if (nota >= 5 && nota < 7) {
+            situacao = "recuperaçao";
+            conceito = "C";
+        } else if (nota >= 7 && nota < 8) {
+            situacao = "aprovado";
+            conceito = "B";
+        } else if (nota >= 8){
+            situacao = "aprovado com honra";
+            conceito = "A";
+        }
+
+        result.textContent = `Situação: ${situacao}, Conceito: ${conceito}`;
+    }
+</script>
+
+</html>

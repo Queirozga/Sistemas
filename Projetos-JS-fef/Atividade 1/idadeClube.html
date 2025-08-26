@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frete</title>
+    <style>
+       body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(200, 200, 202);
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        height: 100vh;
+       }
+
+       .atv_container {
+        background-color: aliceblue;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <div class="atv_container">
+        <h1>Classificar por idade</h1>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" placeholder="Digite a sua idade">
+        <button onclick="categorizar()">Concluído</button>
+        <p id="resultado"></p>
+    </div>
+</body>
+
+<script>
+    function categorizar() {
+        let idd = document.querySelector("#idade").value;
+        let result = document.querySelector("#resultado");
+        let categoria;
+
+        if(idd >= 0 && idd < 13) {
+            categoria = "Infantil";
+        } else if(idd >= 13 && idd < 18) {
+            categoria = "Adolescente";
+        } else if(idd >= 18 && idd < 60) {
+            categoria = "Adulto";
+        } else {
+            categoria = "Idoso";
+        }
+
+        result.textContent = `Categoria: ${categoria}`;
+    }
+</script>
+
+</html>

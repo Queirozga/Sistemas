@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Área do Retângulo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calcular soma</h2>
+        <input type="number" id="numero1" placeholder="Digite um num">
+        <input type="number" id="numero2" placeholder="Digite outro">
+        <br>
+        <button onclick="calcularSoma()">Calcular</button>
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularSoma() {
+            // Obtém os valores dos inputs
+            const numero1 = parseFloat(document.getElementById('numero1').value);
+            const numero2 = parseFloat(document.getElementById('numero2').value);
+
+            // Validação simples
+            if (isNaN(numero1) || isNaN(numero2)) {
+                document.getElementById('resultado').innerText = "Por favor, insira números válidos!";
+                return;
+            }
+
+            // Calcula a área
+            const soma = numero1 + numero2;
+
+            // Mostra o resultado
+            document.getElementById('resultado').innerText = `A soma é ${soma}`;
+        }
+    </script>
+</body>
+</html>

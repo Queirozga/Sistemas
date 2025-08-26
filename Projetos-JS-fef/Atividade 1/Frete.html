@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frete</title>
+    <style>
+       body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(200, 200, 202);
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        height: 100vh;
+       }
+
+       .atv_container {
+        background-color: aliceblue;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <div class="atv_container">
+        <h1>Calcular frete</h1>
+        <label for="valorCompra">Valor da Compra (R$):</label>
+        <input type="number" id="valorCompra" placeholder="Digite o valor da compra">
+        <div>
+            <label for="regiao">Região:</label>
+            <input type="text" id="regiao" placeholder="Digite sua região">
+        </div>
+        <button onclick="calcFrete()">Calcular Frete</button>
+        <p id="resultado"></p>
+
+        </form>
+    </div>
+</body>
+
+<script>
+    function calcFrete(){
+    let valorCompra = parseFloat(document.getElementById("valorCompra").value);
+    let regiao = document.getElementById("regiao").value.toLowerCase();
+    let result = document.getElementById("resultado");
+
+    verificaFrete();
+    calc();
+
+    function verificaFrete() {
+        if (isNaN(valorCompra) || valorCompra <= 0 || (regiao != "norte" &&
+            regiao != "sul" && regiao != "sudeste")) {
+                result.textContent = "Preencha corretamente para continuar!";
+                return;
+            }
+    }
+
+    function calc() {
+        let total = 0;
+        let frete = 0;
+
+        if (regiao == "norte" && valorCompra < 100) {
+            frete = 20;
+            total = valorCompra + frete;
+            result.textContent = `Valor da compra + frete = ${total.toFixed(2)}`;
+        } else if (regiao == "norte" && valorCompra >= 100) {
+            frete = 0;
+            result.textContent = `O Frete é grátis! Valor da compra = ${valorCompra.toFixed(2)}`;
+        }
+
+        if (regiao == "sul" && valorCompra < 80) {
+            frete = 15;
+            total = valorCompra + frete;
+            result.textContent = `Valor da compra + frete = ${total.toFixed(2)}`;
+        } else if (regiao == "sul" && valorCompra >= 80) {
+            frete = 0;
+            result.textContent = `O Frete é grátis! Valor da compra = ${valorCompra.toFixed(2)}`;
+        }
+
+        if (regiao == "sudeste" && valorCompra < 50) {
+            frete = 10;
+            total = valorCompra + frete;
+            result.textContent = `Valor da compra + frete = ${total.toFixed(2)}`;
+        } else if (regiao == "sudeste" && valorCompra >= 50) {
+            frete = 0;
+            result.textContent = `O Frete é grátis! Valor da compra = ${valorCompra.toFixed(2)}`;
+        }
+    }
+}
+    
+</script>
+</html>
