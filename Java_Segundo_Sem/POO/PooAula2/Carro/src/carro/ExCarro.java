@@ -1,4 +1,5 @@
 package carro;
+import java.util.Scanner;
 import model.Carro;
 
 public class ExCarro {
@@ -6,20 +7,23 @@ public class ExCarro {
     
     public static void main(String[] args) {
         
+        Scanner sc = new Scanner(System.in);
+        
         Carro carro1 = new Carro();
-        carro1.setId(01);
-        carro1.setMarca("ferrari");
-        carro1.setModelo("Spider");
-        carro1.setAno(2025);
-        carro1.setValorVenda(2000000);
+        System.out.println("Digite o ID do carro: ");
+        carro1.setId(sc.nextInt());
         
-        int idCar1 = carro1.getId();
-        String MarcaCar1 = carro1.getMarca();
-        String ModeloCar1 = carro1.getModelo();
-        int AnoCar1 = carro1.getAno();
-        double ValorVendaCar1 = carro1.getValorVenda();
+        System.out.println("Digite a marca do carro: ");
+        carro1.setMarca(sc.next());
         
-        Carro carro2 = new Carro(02, "Audi", "a3", 2024, 287000);
+        System.out.println("Digite o modelo do carro: ");
+        carro1.setModelo(sc.next());
+        
+        System.out.println("Digite o ano do carro: ");
+        carro1.setAno(sc.nextInt());
+        
+        System.out.println("Digite o valor da venda: ");
+        carro1.setValorVenda(sc.nextDouble());
         
         System.out.println(carro1.printCarro());
     }

@@ -1,20 +1,11 @@
 package model;
 
 public class Carro {
-    
-    
-    public Carro(int id, String marca, String modelo, int ano, double valorVenda){
-        this.id = id;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.ano = ano;
-        this.valorVenda = valorVenda;
-    }
-    
+
     public Carro(){
     }
-    
-    public void setId(int id){
+
+    public void setId(int id) {
         this.id = id;
     }
     
@@ -55,11 +46,11 @@ public class Carro {
     }
             
     public String printCarro(){
-        return "Id: " + this.id 
-                + "Marca: " + this.marca
-                + "Modelo: " + this.modelo
-                + "Ano: " +this.ano
-                + "Valor da venda: " + this.valorVenda;
+        return "\nId: " + this.getId()
+                + "\nMarca: " + this.getMarca()
+                + "\nModelo: " + this.getModelo()
+                + "\nAno: " +this.getAno()
+                + "\nValor da venda: " + this.getValorVenda();
     }
             
     private int id;
