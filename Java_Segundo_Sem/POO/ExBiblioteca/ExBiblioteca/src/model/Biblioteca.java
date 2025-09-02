@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Biblioteca {
     
     private int idEmprestimo;
@@ -74,5 +76,31 @@ public class Biblioteca {
                 "\nDias de atraso: " + this.nroDiasAtraso +
                 "\nValor da multa a pagar: " + this.valorMultaPagar();
      }
+
+    @Override
+    public String toString() {
+        return "\nId do empréstimo: " + this.idEmprestimo +
+                "\nNome do aluno: " + this.nomeAluno + 
+                "\nNome do livro: " + this.nomeLivro +
+                "\nValor da multa por dia de atraso: " + this.valorMultaDia +
+                "\nDias de atraso: " + this.nroDiasAtraso +
+                "\nValor da multa a pagar: " + this.valorMultaPagar();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + this.idEmprestimo;
+        hash = 53 * hash + Objects.hashCode(this.nomeAluno);
+        hash = 53 * hash + Objects.hashCode(this.nomeLivro);
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.valorMultaDia) ^ (Double.doubleToLongBits(this.valorMultaDia) >>> 32));
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.nroDiasAtraso) ^ (Double.doubleToLongBits(this.nroDiasAtraso) >>> 32));
+        return hash;
+    }
+
+    
+
+    
+    
     
 }

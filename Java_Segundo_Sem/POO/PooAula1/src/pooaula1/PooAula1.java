@@ -12,7 +12,6 @@ public class PooAula1 {
        tom.setGender("male");
        tom.setWeight(15);
        tom.setColor("black");
-       
            
        System.out.println("O nome do gato é: "+ tom.getName());
         
@@ -26,3 +25,4 @@ public class PooAula1 {
 Por ex: pode ter um Cat com 4 param de String, se eu criar outro com o quinto sendo int,
 vai ser diferente, e se eu trocar o int para o primeiro param, vai ser diferente também
 */
+

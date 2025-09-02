@@ -20,7 +20,9 @@ public class ExBiblioteca {
         System.out.println("Digite os dias de atraso: ");
         biblio.setNroDiasAtraso(sc.nextDouble());
         
-        System.out.println(biblio.printBiblioteca());
+        System.out.println(biblio.toString());
+                
+                
     }
     
 }
