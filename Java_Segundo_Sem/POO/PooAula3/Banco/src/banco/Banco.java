@@ -13,7 +13,7 @@ public class Banco {
         int valorSaque = 0;
         
         System.out.println("-----BANCO-----\n");
-        System.out.println("Preencha seus dados para continuar\n");
+        System.out.println("Preencha seus dados para continuar!\n");
         System.out.println("Digite o nome do banco: ");
         String nomeBanco = sc.next();
         System.out.println("\nDigite o número da agência: ");
@@ -32,7 +32,7 @@ public class Banco {
         c1.setSaldoAtual(saldoAtual);
         
         do{
-            System.out.println("Escolha uma ação: \n");
+            System.out.println("\nEscolha uma ação: \n");
             System.out.println("1 - Depositar");
             System.out.println("2 - Sacar");
             System.out.println("3 - Ver dados");

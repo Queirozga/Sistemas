@@ -48,15 +48,15 @@ public class Conta {
     
     public void deposita(int valor){
         this.saldoAtual += valor;
-        System.out.println("Depósito realizado!\n");
+        System.out.println("\nDepósito realizado!");
     }
     
     public void saca(int valor){
         if (this.saldoAtual >= valor ){
         this.saldoAtual -= valor;
-        System.out.println("Saque realizado\n");
+        System.out.println("\nSaque realizado");
         } else {
-            System.out.println("Você não te créditos suficiêntes!\n");
+            System.out.println("\nVocê não tem créditos suficiêntes!");
         }
     }
 
