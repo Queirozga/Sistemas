@@ -24,7 +24,6 @@ public class Emprestimo {
     public void setCliente(String cliente){
         this.cliente = cliente;
     }
-    
 
     public String getBanco() {
         return banco;
@@ -82,6 +81,30 @@ public class Emprestimo {
         this.valorParcelasAPagar = valorParcelasAPagar;
     }
 
+    public void pagaParcela(){
+        this.valorParcelasPagas += this.valorParcela;
+        this.calculaContrato();
+        System.out.println("Parabéns, uma parcela foi paga!");
+    }
+
+    public void calculaContrato(){
+        this.valorParcelasAPagar -= this.valorParcela;
+        this.NumParcelasRestantes--;
+    }
+
+    @Override
+    public String toString(){
+        return "\nCliente: " + this.cliente +
+               "\nBanco: " + this.banco +
+               "\nValor do emprestimo: " + this.valorEmprestimo +
+               "\nNumero de parcelas: " + this.numeroParcelas +
+               "\nValor da parcela: " + this.valorParcela +
+               "\nValor Parcela pagas: " + this.valorParcelasPagas +
+               "\nParcelas restantes: " + this.NumParcelasRestantes +
+               "\nValor Parcelas restantes " + this.valorParcelasAPagar;
+
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -127,29 +150,6 @@ public class Emprestimo {
         }
         return Objects.equals(this.banco, other.banco);
     }
-    
-    public void pagaParcela(){
-        this.valorParcelasPagas += this.valorParcela;
-        this.calculaContrato();
-        System.out.println("Parabéns, uma parcela foi paga!");
-    }
-    
-    public void calculaContrato(){
-        this.valorParcelasAPagar -= this.valorParcela;
-        this.NumParcelasRestantes--;
-    }
-    
-    @Override
-    public String toString(){
-        return "\nCliente: " + this.cliente +
-               "\nBanco: " + this.banco + 
-               "\nValor do emprestimo: " + this.valorEmprestimo +
-               "\nNumero de parcelas: " + this.numeroParcelas +
-               "\nValor da parcela: " + this.valorParcela +
-               "\nValor Parcela pagas: " + this.valorParcelasPagas +
-               "\nParcelas restantes: " + this.NumParcelasRestantes +
-               "\nValor Parcelas restantes " + this.valorParcelasAPagar;
-                
-    }
+
 }
 
