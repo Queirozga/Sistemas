@@ -8,7 +8,6 @@ public class Servico {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        OrdemServico s = new OrdemServico();
         List <OrdemServico> ListServicos = new ArrayList<>();
         
         int escolha = 1;
@@ -19,7 +18,8 @@ public class Servico {
             escolha = sc.nextInt();
                 
             switch (escolha){
-                case 1:                     
+                case 1:    
+                    OrdemServico s = new OrdemServico();
                     System.out.println("\nInforme o id: ");
                     int id = sc.nextInt();
                     System.out.println("\nNome do Cliente: ");
@@ -45,20 +45,27 @@ public class Servico {
 
                     ListServicos.add(s);
 
-                    for(OrdemServico ItemServicos : ListServicos){
-                        System.out.println("\n-----Ordem de serviço-----");
-                        System.out.println(ItemServicos.toString());
-                    };
+                    System.out.println("Ordem de Serviço Cadastrada!");
                     break;
                 case 9: 
+                    System.out.println("-----Serviços Cadastrados-----");
+                    
+                    double faturamentoTotal = 0;
+                    
+                    for(OrdemServico ItemServicos : ListServicos){
+                        System.out.println(ItemServicos.toString());
+                        faturamentoTotal += ItemServicos.getValorPagar();
+                    };
+                    
+                    System.out.println("\nFaturamento Total: R$" + faturamentoTotal);
+                    System.out.println("-----------------------");
+                    System.out.println("Ate a proxima!");
                     break;
                 default: 
                     System.out.println("Numero invalido!");
                     break;  
         }
         } while (escolha != 9);
-        
-        System.out.println(ListServicos.toString());
     }
     
 }

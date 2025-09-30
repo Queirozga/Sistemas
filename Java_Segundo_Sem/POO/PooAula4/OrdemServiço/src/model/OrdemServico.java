@@ -74,6 +74,10 @@ public class OrdemServico {
         this.valorServicoHora = valorServicoHora;
     }
 
+    public double getValorPagar(){
+        return valorPagar;
+    }
+    
     public double calculaValorServico(){
        return this.valorServico = this.valorServicoHora * this.nroHorasTrabalhadas;
     }
